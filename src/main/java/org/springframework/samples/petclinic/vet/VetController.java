@@ -79,7 +79,7 @@ class VetController {
 	public void sanitizeVetNamesForWeb() {
 		Collection<Vet> allVets = vetRepository.findAll();
 		for (Vet vet : allVets) {
-			String sanitized = vet.getFirstName().replaceAll(" ", "_") + "_" + vet.getLastName().replaceAll(" ", "_");
+			String sanitized = vet.getFirstName().replace(" ", "_") + "_" + vet.getLastName().replace(" ", "_");
 			vet.setFirstName(sanitized.split("_")[0]);
 			vet.setLastName(sanitized.split("_")[1]);
 		}
